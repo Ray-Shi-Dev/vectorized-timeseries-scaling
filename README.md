@@ -2,7 +2,7 @@
 
 A learning record and technical exploration into scaling an award-winning machine learning pipeline to handle high-density time-series data. 
 
-## 🎯 The Motivation: Scaling to 2,000+ Data Streams
+## 🎯 The Goal: Scaling to 2,000+ Data Streams
 When working with complex time-series classification—specifically in domains like urban infrastructure and building energy diagnostics—data quality and anomaly detection are paramount. While existing solutions work beautifully on benchmark datasets containing hundreds of time series, operational testing often scales dramatically. 
 
 Faced with a practical scenario requiring the processing of **2,000 individual time streams (roughly a 10x scale-up from standard benchmarks)**, heavy computational friction began to emerge. This repository documents a journey to explore different data engineering methodologies. The goal was to see if transitioning from iterative processing patterns to C-level vectorized operations could make the workflow more scalable, without changing the brilliant underlying mathematical logic.
