@@ -16,6 +16,23 @@ This exploration is built directly upon the foundational logic established by **
 
 Their work demonstrated how robust tree-based classifiers (XGBoost, LightGBM, CatBoost) and thoughtful feature engineering (value-changing ratios and outlier trimming) can effectively classify anomalies. This project seeks only to study how to feed data into their elegant models faster.
 
+## 🧠 Research Inspiration: Vectorization & Memory Contiguity
+
+The architectural shift in this repository—moving away from iterative fragmentation (`pd.concat` inside a `for` loop) to vectorized group operations (`groupby().transform()`)—draws direct inspiration from the foundational systems design of Pandas itself, as detailed in:
+
+> 📄 Wes McKinney. (2011). **Pandas: a Foundational Python Library for Data Analysis and Statistics.** *Python for High Performance and Scientific Computing*, 14(9).
+
+<p align="center">
+  <img src="assets/mckinney_paper_screenshot.png" alt="Pandas Paper Blueprint" width="80%">
+</p>
+
+McKinney’s foundational research emphasizes that for time-series and panel data, dropping down to **C-level vectorized extensions (Cython/NumPy)** over **contiguous memory arrays** is mathematically identical but exponentially faster than interpreted Python loops. 
+
+By leveraging this low-level architecture, this project achieves two critical systems-level objectives during high-frequency data preparation:
+* 🛑 **Mitigates Memory Fragmentation:** Eliminates the catastrophic RAM overhead caused by repeatedly recreating DataFrame objects in loops.
+* ⚡ **Bypasses GIL Overhead:** Allows performance-critical array operations to run closer to bare metal, freeing the pipeline from Python's Global Interpreter Lock bottlenecks.
+
+
 ---
 
 ## 🔍 The Methods Explored
