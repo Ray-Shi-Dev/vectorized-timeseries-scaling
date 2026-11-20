@@ -1,5 +1,7 @@
 # Scaling Time-Series Classification: An Exploration of Vectorized Group-Transforms vs. Iterative Partitioning
 
+> Project write-up with the method and results: **[ray-shi-dev.github.io/work/vectorized-timeseries-scaling](https://ray-shi-dev.github.io/work/vectorized-timeseries-scaling/)**
+
 A learning record and technical exploration into scaling an award-winning machine learning pipeline to handle high-density time-series data. 
 
 ## 🎯 The Motivation: Scaling to 2,000+ Data Streams
